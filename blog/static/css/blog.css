@@ -77,3 +77,8 @@ h4 {
     color: #FFFFFF;
     background-color: #C25100;
 }
+
+.top-menu svg {
+    width: 36px;
+    height: 36px;
+}
