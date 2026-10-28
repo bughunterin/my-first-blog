@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Seite nicht gefunden</h2>
+    <p>Diese Adresse gibt es hier nicht. Vielleicht wurde der Beitrag gelöscht.</p>
+    <a class="btn btn-default" href="{% url 'post_list' %}">Zur Startseite</a>
+{% endblock %}

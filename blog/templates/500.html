@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Da ist etwas schiefgelaufen</h2>
+    <p>Der Server hat einen Fehler gemeldet. Bitte versuch es später noch einmal.</p>
+    <a class="btn btn-default" href="{% url 'post_list' %}">Zur Startseite</a>
+{% endblock %}
