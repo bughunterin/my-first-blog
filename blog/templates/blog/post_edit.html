@@ -2,6 +2,10 @@
 
 {% block content %}
     <h2>New post</h2>
+    <a class="btn btn-default" href="{% url 'post_list' %}">
+    {% include './icons/arrow-left.svg' %}
+    </a>
+
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>

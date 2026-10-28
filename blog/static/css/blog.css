@@ -1,14 +1,22 @@
+:root {
+    --st-dunkelblau: #004B87;
+    --st-cyan: #00ffff;
+    --st-grau: #4d4d4d;
+}
+
+
 h1 a, h2 a {
-    color: #C25100;
-    font-family: 'Lobster';
+    color: var(--st-dunkelblau);
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 body {
     padding-left: 15px;
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 .page-header {
-    background-color: #C25100;
+    background-color: var(--st-dunkelblau);
     margin-top: 0;
     margin-bottom: 40px;
     padding: 20px 20px 20px 40px;
@@ -27,11 +35,11 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 .date {
-    color: #828282;
+    color: var(--st-grau);
 }
 
 .save {
@@ -68,17 +76,62 @@ h4 {
 
 .btn-default,
 .btn-default:visited {
-    color: #C25100;
+    color: var(--st-dunkelblau);
     background: none;
-    border-color: #C25100;
+    border-color: var(--st-dunkelblau);
 }
 
 .btn-default:hover {
     color: #FFFFFF;
-    background-color: #C25100;
+    background-color: var(--st-dunkelblau);
 }
 
 .top-menu svg {
     width: 36px;
     height: 36px;
+}
+
+#logout {
+    font-family: 'Source Sans 3', sans-serif;
+
+}
+
+small a,
+small a:hover,
+small a:visited {
+    font-size: 15pt;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#logout form {
+    display: inline;
+}
+
+#logout button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #ffffff;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 320px;
+    padding: 6px 10px;
+    margin: 4px 0;
+}
+
+.actions form {
+    display: inline;
+}
+
+.actions .btn {
+    margin-left: 8px;
+}
+
+.post > .actions {
+    margin-left: 20px;
 }
