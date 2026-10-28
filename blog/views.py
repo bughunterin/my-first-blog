@@ -3,6 +3,7 @@ from .models import Post, Comment
 from django.utils import timezone
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 
@@ -22,6 +23,7 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+            messages.success(request, "Beitrag gespeichert.")
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
@@ -36,6 +38,7 @@ def post_edit(request, pk):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+            messages.success(request, "Beitrag gespeichert.")
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
@@ -51,6 +54,8 @@ def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method=='POST':
         post.publish()
+        messages.success(request, "Beitrag veröffentlicht.")
+
     return redirect('post_detail', pk=pk)
 
 @login_required
@@ -58,7 +63,9 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method=='POST':
         post.delete()
+        messages.success(request, "Beitrag gelöscht.")
     return redirect('post_list')
+
 
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -68,6 +75,7 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(request, "Danke! Dein Kommentar erscheint nach der Freigabe.")
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
