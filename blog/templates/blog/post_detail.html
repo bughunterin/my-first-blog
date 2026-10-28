@@ -44,12 +44,18 @@
         <div class="date">
             {{ comment.created_date }}
             {% if not comment.approved_comment %}
-                <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}">
-                   {% include './icons/hand-thumbs-down.svg' %}
-                </a>
-                <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}">
-                   {% include './icons/hand-thumbs-up.svg' %}
-                </a>
+                <form method="POST" action="{% url 'comment_remove' pk=comment.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-default">
+                        {% include './icons/hand-thumbs-down.svg' %}
+                    </button>
+                </form>
+                <form method="POST" action="{% url 'comment_approve' pk=comment.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-default">
+                        {% include './icons/hand-thumbs-up.svg' %}
+                    </button>
+                </form>
             {% endif %}
         </div>
         <strong>{{ comment.author }}</strong>
