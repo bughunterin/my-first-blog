@@ -135,3 +135,7 @@ small a:visited {
 .post > .actions {
     margin-left: 20px;
 }
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
