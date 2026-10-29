@@ -31,3 +31,10 @@ class PostAccessTests(TestCase):
         self.client.post(f'/post/{self.draft.pk}/publish/')
         self.draft.refresh_from_db()
         self.assertIsNotNone(self.draft.published_date)
+
+    def test_comment_html_is_escaped(self):
+        self.draft.publish()
+        self.draft.comments.create(author='Böse', text='<script>alert(1)</script>', approved_comment=True)
+        response = self.client.get(f'/post/{self.draft.pk}/')
+        self.assertNotContains(response, '<script>alert(1)</script>')
+        self.assertContains(response, '&lt;script&gt;')
