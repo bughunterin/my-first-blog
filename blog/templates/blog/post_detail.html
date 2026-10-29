@@ -27,7 +27,7 @@
             <aside class="actions">
                 <form method="POST" action="{% url 'post_publish' pk=post.pk %}">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-default">Publish</button>
+                    <button type="submit" class="btn btn-default">Veröffentlichen</button>
                 </form>
             </aside>
         {% endif %}
@@ -37,7 +37,7 @@
     </article>
 
     <hr>
-    <a class="btn btn-default" role="button" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+    <a class="btn btn-default" role="button" href="{% url 'add_comment_to_post' pk=post.pk %}">Kommentar schreiben</a>
     {% for comment in post.comments.all %}
     {% if user.is_authenticated or comment.approved_comment %}
     <div class="comment">
@@ -63,6 +63,6 @@
     </div>
     {% endif %}
 {% empty %}
-    <p>No comments here yet :(</p>
+    <p>Noch keine Kommentare :(</p>
 {% endfor %}
 {% endblock %}

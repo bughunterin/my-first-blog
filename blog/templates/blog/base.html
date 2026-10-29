@@ -20,7 +20,7 @@
                     </a>
                     <a href="{% url 'post_draft_list' %}" class="top-menu">{% include './icons/pencil-square.svg'%}</a>
 
-                    <div id="logout" class="top-menu">Hello {{ user.username }}
+                    <div id="logout" class="top-menu">Hallo {{ user.username }}
                         <form method="POST" action="{% url 'logout' %}">
                             {% csrf_token %}
                             <button type="submit">{% include './icons/box-arrow-right.svg' %}</button>
